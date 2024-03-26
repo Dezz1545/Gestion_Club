@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Supprimer la quittance</title>
+</head>
+<body>
+    <h1>Supprimer la quittance "{{ quittance.nom_quittance }}"</h1>
+    <p>Êtes-vous sûr de vouloir supprimer cette quittance ? Cette action est irréversible.</p>
+    <form id="deleteForm" method="post">
+        {% csrf_token %}
+        <button id="deleteButton" type="submit">Supprimer la quittance</button>
+    </form>
+
+    <script>
+        // Fonction pour afficher une boîte de dialogue de confirmation avant de supprimer la quittance
+        document.getElementById('deleteButton').addEventListener('click', function(event) {
+            event.preventDefault();
+            var confirmation = confirm("Êtes-vous sûr de vouloir supprimer cette quittance ?");
+            if (confirmation) {
+                document.getElementById('deleteForm').submit();
+            }
+        });
+    </script>
+</body>
+</html>

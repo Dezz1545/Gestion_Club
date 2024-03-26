@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Créer une quittance</title>
+</head>
+<body>
+    <h1>Créer une quittance</h1>
+    <form method="post" class="my-4 animate__animated animate__fadeIn">
+        {% csrf_token %}
+        <div class="mb-3">
+            {{ form.nom_quittance.label_tag }}
+            {{ form.nom_quittance }}
+            {% if form.nom_quittance.errors %}
+                <div class="invalid-feedback">
+                    {{ form.nom_quittance.errors }}
+                </div>
+            {% endif %}
+        </div>
+        <div class="mb-3">
+            {{ form.libelle_quittance.label_tag }}
+            {{ form.libelle_quittance }}
+            {% if form.libelle_quittance.errors %}
+                <div class="invalid-feedback">
+                    {{ form.libelle_quittance.errors }}
+                </div>
+            {% endif %}
+        </div>
+        <div class="mb-3">
+            {{ form.date_quittance.label_tag }}
+            {{ form.date_quittance }}
+            {% if form.date_quittance.errors %}
+                <div class="invalid-feedback">
+                    {{ form.date_quittance.errors }}
+                </div>
+            {% endif %}
+        </div>
+        <button type="submit" class="btn btn-primary animate__animated animate__fadeInUp">Enregistrer</button>
+    </form>
+    
+</body>
+</html>

@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Supprimer le membre</title>
+</head>
+<body>
+    <h1>Supprimer le membre "{{ menbre.nom }} {{ menbre.prenom }}"</h1>
+    <p>Êtes-vous sûr de vouloir supprimer ce membre ? Cette action est irréversible.</p>
+    <form method="post">
+        {% csrf_token %}
+        <button type="submit">Supprimer le membre</button>
+    </form>
+</body>
+</html>
